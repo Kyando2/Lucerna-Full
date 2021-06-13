@@ -1,0 +1,8 @@
+[workspace]
+
+members = [
+    "Web",
+    "Parser",
+    "Liber",
+    "Structures"
+]

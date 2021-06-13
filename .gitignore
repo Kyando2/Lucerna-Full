@@ -1,0 +1,13 @@
+target/*
+*.lock
+*.json
+*.TAG
+Liber/target/*
+Web/target/*
+Structures/target/*
+Parser/target/*
+Structures/.idea/*
+Web/.idea/*
+Parser/.idea/*
+Liber/.idea/*
+.idea/*
