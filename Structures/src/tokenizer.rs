@@ -75,8 +75,12 @@ fn handle_table(ss: &str, env: &mut Env, sss: &Statement) -> Option<ParsedResult
     let mut found = None;
     let sk = (t.split('(').next().unwrap()).to_string();
     let split = sk.split('.');
-    let cc = env.get(split.clone().collect::<Vec<&str>>().get(0).unwrap()).expect("Could not find table");
-    if let DefaultTypes::Table(mut current_t) = cc {
+    let cc = env.get(split.clone().collect::<Vec<&str>>().get(0).unwrap());
+    match &cc {
+        Some(_) => {}
+        None => env.exit(&format!("Table {} was not found", split.clone().collect::<Vec<&str>>().get(0).unwrap()),sss.line())
+    }
+    if let DefaultTypes::Table(mut current_t) = cc.unwrap() {
         let iterer = split.collect::<Vec<&str>>();
         let mut stuff = vec![(iterer[1].to_string(), current_t.clone())];
         let slice;
