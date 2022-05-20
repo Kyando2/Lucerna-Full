@@ -1,6 +1,6 @@
 import re
 
-with open("../Cargo.lock", 'r') as f:
+with open("Cargo.lock", 'r') as f:
     lines = f.readlines()
 
 PARSER_VER = "UNKNOWN"
